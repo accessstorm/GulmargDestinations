@@ -1,0 +1,179 @@
+import React from 'react';
+import { 
+  Box, 
+  Container, 
+  Grid, 
+  Typography, 
+  IconButton, 
+  Divider,
+  List, 
+  ListItem, 
+  ListItemButton,
+  ListItemText, 
+  useTheme 
+} from '@mui/material';
+import { 
+  Facebook as FacebookIcon, 
+  Instagram as InstagramIcon, 
+  Twitter as TwitterIcon, 
+  LinkedIn as LinkedInIcon,
+  Phone as PhoneIcon,
+  Email as EmailIcon,
+  LocationOn as LocationIcon
+} from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+
+const Footer = () => {
+  const theme = useTheme();
+
+  const footerLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Packages', path: '/packages' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Terms & Conditions', path: '/terms' },
+    { name: 'Privacy Policy', path: '/privacy' },
+  ];
+
+  return (
+    <Box 
+      component="footer" 
+      sx={{ 
+        bgcolor: theme.palette.primary.main,
+        color: 'white',
+        py: 6,
+        mt: 'auto'
+      }}
+    >
+      <Container maxWidth="lg">
+        <Grid container spacing={4}>
+          {/* Company Info */}
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6" gutterBottom sx={{ 
+              fontFamily: '"Montserrat", "Arial", sans-serif',
+              fontWeight: 700,
+              mb: 2
+            }}>
+              GULMARG DESTINATIONS
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 2 }}>
+              Discover the enchanting beauty of Gulmarg with our exclusive tour packages 
+              and travel services designed to provide you with unforgettable experiences.
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 1, mt: 3 }}>
+              <IconButton aria-label="Facebook" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
+                <FacebookIcon />
+              </IconButton>
+              <IconButton aria-label="Instagram" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
+                <InstagramIcon />
+              </IconButton>
+              <IconButton aria-label="Twitter" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
+                <TwitterIcon />
+              </IconButton>
+              <IconButton aria-label="LinkedIn" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
+                <LinkedInIcon />
+              </IconButton>
+            </Box>
+          </Grid>
+
+          {/* Quick Links */}
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography variant="h6" gutterBottom sx={{ 
+              fontFamily: '"Montserrat", "Arial", sans-serif',
+              fontWeight: 600,
+              mb: 2
+            }}>
+              Quick Links
+            </Typography>
+            <List dense sx={{ p: 0 }}>
+              {footerLinks.slice(0, 5).map((link) => (
+                <ListItem key={link.name} disablePadding>
+                  <ListItemButton 
+                    component={Link} 
+                    to={link.path}
+                    sx={{ 
+                      py: 0.5,
+                      '&:hover': { 
+                        color: theme.palette.secondary.main
+                      }
+                    }}
+                  >
+                    <ListItemText 
+                      primary={link.name} 
+                      primaryTypographyProps={{ 
+                        variant: 'body2',
+                        fontFamily: '"Roboto", "Arial", sans-serif',
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Grid>
+
+          {/* Contact Information */}
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography variant="h6" gutterBottom sx={{ 
+              fontFamily: '"Montserrat", "Arial", sans-serif',
+              fontWeight: 600,
+              mb: 2
+            }}>
+              Contact Us
+            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
+              <LocationIcon sx={{ mr: 1, color: theme.palette.secondary.main }} />
+              <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
+                123 Gulmarg Road, Kashmir, India
+              </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <PhoneIcon sx={{ mr: 1, color: theme.palette.secondary.main }} />
+              <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
+                +91 123 456 7890
+              </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <EmailIcon sx={{ mr: 1, color: theme.palette.secondary.main }} />
+              <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
+                info@gulmargdestinations.com
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ my: 4, bgcolor: 'rgba(255,255,255,0.1)' }} />
+
+        {/* Copyright */}
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+          <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
+            © {new Date().getFullYear()} Gulmarg Destinations. All rights reserved.
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 3 }}>
+            {footerLinks.slice(5).map((link) => (
+              <Typography 
+                key={link.name} 
+                variant="body2" 
+                component={Link} 
+                to={link.path}
+                sx={{ 
+                  color: 'white', 
+                  textDecoration: 'none',
+                  fontFamily: '"Roboto", "Arial", sans-serif',
+                  '&:hover': { 
+                    color: theme.palette.secondary.main,
+                    textDecoration: 'underline'
+                  }
+                }}
+              >
+                {link.name}
+              </Typography>
+            ))}
+          </Box>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
+
+export default Footer; 
