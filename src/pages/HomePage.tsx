@@ -15,7 +15,13 @@ import {
   Paper,
   useTheme,
   Chip,
-  IconButton
+  IconButton,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  Icon
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import DirectionsIcon from '@mui/icons-material/Directions';
@@ -27,6 +33,14 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CloseIcon from '@mui/icons-material/Close';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TypewriterEffect from '../components/TypewriterEffect';
 import { motion } from 'framer-motion';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -45,6 +59,7 @@ const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [openContactModal, setOpenContactModal] = useState(false);
   
   // Header slideshow images
   const headerImages = [
@@ -83,6 +98,23 @@ const HomePage = () => {
       }
     };
   }, [isPaused]);
+
+  useEffect(() => {
+    // Check if the modal has been shown before
+    const hasShownModal = localStorage.getItem('hasShownContactModal');
+    if (!hasShownModal) {
+      // Show modal after 2 seconds
+      const timer = setTimeout(() => {
+        setOpenContactModal(true);
+        localStorage.setItem('hasShownContactModal', 'true');
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleCloseContactModal = () => {
+    setOpenContactModal(false);
+  };
 
   // Replace with actual local image path
   const heroImagePath = '/images/header.png'; 
@@ -240,6 +272,171 @@ const HomePage = () => {
 
   return (
     <Box>
+      {/* Contact Details Modal */}
+      <Dialog 
+        open={openContactModal} 
+        onClose={handleCloseContactModal}
+        maxWidth="sm"
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: 4,
+            overflow: 'hidden',
+            position: 'relative'
+          }
+        }}
+      >
+        <DialogTitle sx={{ 
+          bgcolor: theme.palette.primary.main,
+          color: 'white',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          pb: 2
+        }}>
+          <Typography variant="h5" fontWeight="bold">
+            Get in Touch
+          </Typography>
+          <IconButton 
+            onClick={handleCloseContactModal}
+            sx={{ 
+              color: 'white',
+              '&:hover': {
+                bgcolor: 'rgba(255, 255, 255, 0.1)'
+              }
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        
+        <DialogContent sx={{ p: 4 }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Box sx={{ mb: 4 }}>
+                <Typography variant="h6" gutterBottom>
+                  Contact Information
+                </Typography>
+                <Divider sx={{ mb: 3 }} />
+              </Box>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Full Name"
+                variant="outlined"
+                required
+                sx={{ mb: 3 }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Email"
+                variant="outlined"
+                type="email"
+                required
+                sx={{ mb: 3 }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Phone Number"
+                variant="outlined"
+                type="tel"
+                required
+                sx={{ mb: 3 }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Subject"
+                variant="outlined"
+                required
+                sx={{ mb: 3 }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Message"
+                variant="outlined"
+                multiline
+                rows={4}
+                required
+                sx={{ mb: 3 }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Box sx={{ 
+                display: 'flex', 
+                gap: 2,
+                mt: 2
+              }}>
+                <IconButton 
+                  color="primary"
+                  sx={{ 
+                    bgcolor: 'rgba(25, 118, 210, 0.1)',
+                    '&:hover': {
+                      bgcolor: 'rgba(25, 118, 210, 0.2)'
+                    }
+                  }}
+                >
+                  <WhatsAppIcon />
+                </IconButton>
+                <IconButton 
+                  color="primary"
+                  sx={{ 
+                    bgcolor: 'rgba(25, 118, 210, 0.1)',
+                    '&:hover': {
+                      bgcolor: 'rgba(25, 118, 210, 0.2)'
+                    }
+                  }}
+                >
+                  <PhoneIcon />
+                </IconButton>
+                <IconButton 
+                  color="primary"
+                  sx={{ 
+                    bgcolor: 'rgba(25, 118, 210, 0.1)',
+                    '&:hover': {
+                      bgcolor: 'rgba(25, 118, 210, 0.2)'
+                    }
+                  }}
+                >
+                  <EmailIcon />
+                </IconButton>
+              </Box>
+            </Grid>
+          </Grid>
+        </DialogContent>
+        
+        <DialogActions sx={{ 
+          p: 3, 
+          bgcolor: 'rgba(25, 118, 210, 0.05)',
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <Button 
+            variant="contained" 
+            color="primary"
+            onClick={handleCloseContactModal}
+            sx={{ 
+              px: 4,
+              py: 1.5,
+              borderRadius: 2,
+              textTransform: 'none',
+              fontSize: '1.1rem',
+              fontWeight: 'bold'
+            }}
+          >
+            Send Message
+          </Button>
+        </DialogActions>
+      </Dialog>
+
       {/* Hero Section with Slideshow */}
       <Box 
         sx={{ 
