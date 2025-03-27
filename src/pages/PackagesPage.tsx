@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   Box,
@@ -122,7 +121,7 @@ const PackagesPage = () => {
       id: 1,
       title: 'Winter Adventure Package',
       description: 'Experience the thrill of skiing, snowboarding, and other winter sports in the beautiful mountains of Gulmarg.',
-      price: '₹15,000',
+      price: '₹16,500',
       duration: '3 days, 2 nights',
       location: 'Gulmarg, Kashmir',
       rating: 4.8,
@@ -140,7 +139,7 @@ const PackagesPage = () => {
       id: 2,
       title: 'Relaxation Retreat',
       description: 'Unwind and rejuvenate with our peaceful retreat package including spa treatments and scenic views.',
-      price: '₹12,000',
+      price: '₹13,500',
       duration: '4 days, 3 nights',
       location: 'Gulmarg, Kashmir',
       rating: 4.9,
@@ -158,7 +157,7 @@ const PackagesPage = () => {
       id: 3,
       title: 'Cultural Experience',
       description: 'Immerse yourself in the rich culture of Kashmir with guided tours to local villages and historical sites.',
-      price: '₹10,000',
+      price: '₹12,500',
       duration: '5 days, 4 nights',
       location: 'Gulmarg & Surrounding Areas',
       rating: 4.7,
@@ -176,7 +175,7 @@ const PackagesPage = () => {
       id: 4,
       title: 'Family Package',
       description: 'The perfect package for families looking to create unforgettable memories in the breathtaking Gulmarg region.',
-      price: '₹20,000',
+      price: '₹23,500',
       duration: '6 days, 5 nights',
       location: 'Gulmarg & Surrounding Areas',
       rating: 4.6,
@@ -194,7 +193,7 @@ const PackagesPage = () => {
       id: 5,
       title: 'Honeymoon Special',
       description: 'Celebrate your love in one of the most romantic settings with our specially designed honeymoon package.',
-      price: '₹25,000',
+      price: '₹23,500',
       duration: '7 days, 6 nights',
       location: 'Gulmarg, Kashmir',
       rating: 5.0,
@@ -212,7 +211,7 @@ const PackagesPage = () => {
       id: 6,
       title: 'Adventure Explorer',
       description: 'For the thrill-seekers looking to push their limits in the stunning Himalayan terrain.',
-      price: '₹18,000',
+      price: '₹18,500',
       duration: '5 days, 4 nights',
       location: 'Gulmarg & Surrounding Areas',
       rating: 4.8,
@@ -230,7 +229,7 @@ const PackagesPage = () => {
       id: 7,
       title: 'Kashmir Paradise',
       description: 'Experience the magic of Kashmir with our comprehensive tour package.',
-      price: '₹25,000',
+      price: '₹21,500',
       duration: '5 Days',
       location: 'Gulmarg, Kashmir',
       rating: 4.8,
@@ -244,7 +243,7 @@ const PackagesPage = () => {
       id: 8,
       title: 'Winter Wonderland',
       description: 'Discover the snowy paradise of Kashmir in winter.',
-      price: '₹30,000',
+      price: '₹23,500',
       duration: '6 Days',
       location: 'Gulmarg, Kashmir',
       rating: 4.9,
@@ -258,7 +257,7 @@ const PackagesPage = () => {
       id: 9,
       title: 'Shimla Serenity',
       description: 'Explore the colonial charm and natural beauty of Shimla.',
-      price: '₹20,000',
+      price: '₹15,500',
       duration: '4 Days',
       location: 'Shimla, Himachal Pradesh',
       rating: 4.7,
@@ -272,7 +271,7 @@ const PackagesPage = () => {
       id: 10,
       title: 'Manali Magic',
       description: 'Experience the perfect blend of adventure and tranquility in Manali.',
-      price: '₹22,000',
+      price: '₹16,500',
       duration: '5 Days',
       location: 'Manali, Himachal Pradesh',
       rating: 4.8,
@@ -286,7 +285,7 @@ const PackagesPage = () => {
       id: 11,
       title: 'Leh Ladakh Adventure',
       description: 'Journey through the mystical landscapes of Leh Ladakh.',
-      price: '₹35,000',
+      price: '₹23,500',
       duration: '7 Days',
       location: 'Leh, Ladakh',
       rating: 4.9,
@@ -303,7 +302,7 @@ const PackagesPage = () => {
       id: 1,
       name: 'Khyber Himalayan Resort & Spa',
       description: 'Luxury 5-star resort offering panoramic views of Gulmarg.',
-      price: '₹15,000',
+      price: '₹28,000',
       rating: 4.8,
       image: '/images/Khyber Himalayan Resort & Spa.jpg',
       features: ['Spa Services', 'Fine Dining', 'Ski-in/Ski-out Access', 'Helicopter Service'],
@@ -658,9 +657,11 @@ const PackagesPage = () => {
                           variant="contained" 
                           color="primary"
                           sx={{ ml: 1 }}
-                          onClick={() => handleOpenDialog(hotel.id)}
+                          component="a"
+                          href="https://www.thekhyber.com/"
+                          target="_blank"
                         >
-                          Book Now
+                          Visit Website
                         </Button>
                       </CardActions>
                     </Card>

@@ -157,14 +157,14 @@ const CabsPage = () => {
     },
     {
       id: 4,
-      name: 'Tempo Traveller',
-      image: '/images/Tempo Traveller.jpg',
+      name: 'Force Traveller',
+      image: '/images/Force Traveller.jpg',
       seats: 'Shared',
       dailyRental: '₹4,500',
       location: 'Gulmarg, Kashmir',
       rating: 4.6,
       reviews: 38,
-      description: "Our Tempo Traveller is the ultimate solution for large groups or shared transportation needs. With comfortable reclining seats, ample luggage space, and full air conditioning, it ensures pleasant journeys even on longer routes through Kashmir's diverse terrain.",
+      description: "Our Force Traveller is the ultimate solution for large groups or shared transportation needs. With comfortable reclining seats, ample luggage space, and full air conditioning, it ensures pleasant journeys even on longer routes through Kashmir's diverse terrain.",
       keyPoints: [
         'Ideal for large groups',
         'Ample luggage space',
