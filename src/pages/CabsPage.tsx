@@ -187,24 +187,36 @@ const CabsPage = () => {
 
   // Calculate how many vehicles to show at once based on screen size
   const getVisibleCount = () => {
-    if (window.innerWidth < 600) return 1;
-    if (window.innerWidth < 960) return 2;
-    return 3;
+    // Return number of items to show based on screen width
+    if (window.innerWidth < 600) return 1;  // xs screens - mobile
+    if (window.innerWidth < 960) return 2;  // sm screens - tablets
+    return 3;  // md+ screens - desktop
   };
+
+  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
+
+  // Update visible count on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleCount(getVisibleCount());
+    };
+    
+    window.addEventListener('resize', handleResize);
+    // Initialize with current window size
+    handleResize();
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // Navigation functions
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => {
-      const nextIndex = prevIndex + 1;
-      return nextIndex >= vehicles.length ? 0 : nextIndex;
-    });
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % vehicles.length);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => {
-      const prevIndex2 = prevIndex - 1;
-      return prevIndex2 < 0 ? vehicles.length - 1 : prevIndex2;
-    });
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + vehicles.length) % vehicles.length);
   };
 
   // Define handlers for the buttons
@@ -396,75 +408,97 @@ const CabsPage = () => {
                 position: 'relative'
               }}
             >
-              {/* Add side navigation buttons */}
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handlePrev}
-                sx={{ 
-                  position: 'absolute',
-                  left: { xs: 8, sm: 8 },
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  zIndex: 100,
-                  borderRadius: '50%', 
-                  minWidth: '40px', 
-                  width: '40px',
-                  height: '40px',
-                  p: 0,
-                  boxShadow: 4
-                }}
-              >
-                <ArrowBackIosIcon sx={{ ml: 1, fontSize: 'small' }} />
-              </Button>
-              
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                sx={{ 
-                  position: 'absolute',
-                  right: { xs: 8, sm: 8 },
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  zIndex: 100,
-                  borderRadius: '50%', 
-                  minWidth: '40px', 
-                  width: '40px',
-                  height: '40px',
-                  p: 0,
-                  boxShadow: 4
-                }}
-              >
-                <ArrowForwardIosIcon sx={{ fontSize: 'small' }} />
-              </Button>
+              {/* Add side navigation buttons - hidden on mobile, visible on tablet and up */}
+              <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handlePrev}
+                  sx={{ 
+                    position: 'absolute',
+                    left: { xs: 8, sm: 8 },
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 100,
+                    borderRadius: '50%', 
+                    minWidth: '40px', 
+                    width: '40px',
+                    height: '40px',
+                    p: 0,
+                    boxShadow: 4
+                  }}
+                >
+                  <ArrowBackIosIcon sx={{ ml: 1, fontSize: 'small' }} />
+                </Button>
+                
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                  sx={{ 
+                    position: 'absolute',
+                    right: { xs: 8, sm: 8 },
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 100,
+                    borderRadius: '50%', 
+                    minWidth: '40px', 
+                    width: '40px',
+                    height: '40px',
+                    p: 0,
+                    boxShadow: 4
+                  }}
+                >
+                  <ArrowForwardIosIcon sx={{ fontSize: 'small' }} />
+                </Button>
+              </Box>
 
-              <Grid container spacing={3} sx={{ flexWrap: 'nowrap' }}>
-                {vehicles.map((vehicle, index) => (
-                  <Grid 
-                    item 
-                    xs={12} 
-                    sm={6} 
-                    md={4} 
-                    key={index}
-                    sx={{ 
-                      display: index === currentIndex || 
-                               index === (currentIndex + 1) % vehicles.length || 
-                               index === (currentIndex + 2) % vehicles.length ? 'block' : 'none',
-                      animation: 'fadeIn 0.5s ease-in-out',
-                      '@keyframes fadeIn': {
-                        '0%': { opacity: 0 },
-                        '100%': { opacity: 1 }
-                      }
-                    }}
-                  >
-                    {renderVehicleCard(vehicle)}
-                  </Grid>
-                ))}
+              <Grid container spacing={3} sx={{ 
+                display: 'flex', 
+                flexWrap: { xs: 'nowrap', md: 'nowrap' },
+                px: { xs: 2, sm: 4 },
+                overflow: { xs: 'auto', md: 'hidden' },
+                scrollSnapType: 'x mandatory',
+                '&::-webkit-scrollbar': {
+                  display: 'none'
+                },
+                scrollbarWidth: 'none'
+              }}>
+                {vehicles.map((vehicle, index) => {
+                  // Logic to calculate if this item should be visible
+                  const isVisible = index >= currentIndex && index < currentIndex + visibleCount;
+                  // Handle wrap-around for the end of the array
+                  const isWrappedVisible = currentIndex + visibleCount > vehicles.length && 
+                                         index < (currentIndex + visibleCount) % vehicles.length;
+                  
+                  return (
+                    <Grid 
+                      item 
+                      xs={12}
+                      sm={6} 
+                      md={4} 
+                      key={index}
+                      sx={{ 
+                        flexShrink: 0,
+                        width: { xs: '100%', sm: '50%', md: '33.33%' },
+                        scrollSnapAlign: 'center',
+                        display: { 
+                          xs: 'block', // Always display on mobile (will show in scrollable container)
+                          sm: isVisible || isWrappedVisible ? 'block' : 'none'
+                        },
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      <Box sx={{ px: 1 }}>
+                        {renderVehicleCard(vehicle)}
+                      </Box>
+                    </Grid>
+                  );
+                })}
               </Grid>
 
               {/* Move dot indicators to bottom center */}
-              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4, mb: 1, overflow: 'auto' }}>
                 {vehicles.map((_, index) => (
                   <Box
                     key={index}
@@ -475,7 +509,8 @@ const CabsPage = () => {
                       mx: 0.5,
                       bgcolor: currentIndex === index ? theme.palette.primary.main : 'grey.300',
                       transition: 'all 0.3s ease',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      flexShrink: 0
                     }}
                     onClick={() => setCurrentIndex(index)}
                   />
