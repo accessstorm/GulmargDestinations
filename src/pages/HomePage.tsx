@@ -37,10 +37,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import TypewriterEffect from '../components/TypewriterEffect';
 import { motion } from 'framer-motion';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -447,6 +447,7 @@ const HomePage = () => {
                 mb: 2
               }}>
                 <InstagramIcon color="primary" />
+                <FacebookIcon color="primary" />
                 <Typography variant="h6">
                   @gulmarg_destination
                 </Typography>
@@ -471,6 +472,20 @@ const HomePage = () => {
                   }}
                 >
                   <InstagramIcon />
+                </IconButton>
+                <IconButton 
+                  color="primary"
+                  component="a"
+                  href="https://www.facebook.com/share/1DuadeLv9C/"
+                  target="_blank"
+                  sx={{ 
+                    bgcolor: 'rgba(25, 118, 210, 0.1)',
+                    '&:hover': {
+                      bgcolor: 'rgba(25, 118, 210, 0.2)'
+                    }
+                  }}
+                >
+                  <FacebookIcon />
                 </IconButton>
                 <IconButton 
                   color="primary"

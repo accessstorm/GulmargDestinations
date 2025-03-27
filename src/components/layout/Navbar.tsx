@@ -10,10 +10,10 @@ import {
   Button,
   MenuItem,
   useMediaQuery,
-  useTheme
+  useTheme,
+  Avatar
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import LandscapeIcon from '@mui/icons-material/Landscape';
 import { Link } from 'react-router-dom';
 
 const pages = [
@@ -47,12 +47,15 @@ const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo for larger screens */}
-          <LandscapeIcon 
+          <Avatar
+            src="/images/logoGD.webp"
+            alt="Gulmarg Destinations Logo"
             sx={{ 
               display: { xs: 'none', md: 'flex' }, 
               mr: 1,
-              fontSize: 35,
-              color: theme.palette.secondary.main
+              width: 40,
+              height: 40,
+              border: `2px solid ${theme.palette.secondary.main}`
             }} 
           />
           <Typography
@@ -118,12 +121,15 @@ const Navbar = () => {
           </Box>
 
           {/* Logo for smaller screens */}
-          <LandscapeIcon 
+          <Avatar
+            src="/images/logoGD.webp"
+            alt="Gulmarg Destinations Logo"
             sx={{ 
               display: { xs: 'flex', md: 'none' }, 
               mr: 1,
-              fontSize: 30,
-              color: theme.palette.secondary.main
+              width: 35,
+              height: 35,
+              border: `2px solid ${theme.palette.secondary.main}`
             }} 
           />
           <Typography

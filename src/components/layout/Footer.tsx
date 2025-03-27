@@ -75,6 +75,19 @@ const Footer = () => {
               >
                 <InstagramIcon />
               </IconButton>
+              <IconButton 
+                component="a"
+                href="https://www.facebook.com/share/1DuadeLv9C/"
+                target="_blank"
+                sx={{ 
+                  color: '#ffffff',
+                  '&:hover': { 
+                    color: theme.palette.secondary.main 
+                  }
+                }}
+              >
+                <FacebookIcon />
+              </IconButton>
             </Box>
           </Grid>
 
@@ -159,6 +172,19 @@ const Footer = () => {
                 }}
               >
                 <InstagramIcon />
+              </IconButton>
+              <IconButton 
+                component="a"
+                href="https://www.facebook.com/share/1DuadeLv9C/"
+                target="_blank"
+                sx={{ 
+                  color: 'white',
+                  '&:hover': {
+                    bgcolor: 'rgba(255,255,255,0.1)'
+                  }
+                }}
+              >
+                <FacebookIcon />
               </IconButton>
             </Box>
           </Grid>

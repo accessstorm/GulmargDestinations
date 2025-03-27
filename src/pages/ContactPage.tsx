@@ -452,7 +452,20 @@ const ContactPage = () => {
                         }}>
                           <InstagramIcon fontSize="small" />
                         </Box>
-                        Instagram
+                        <Box component="span" sx={{ 
+                          width: 40, 
+                          height: 40, 
+                          borderRadius: '50%', 
+                          bgcolor: theme.palette.secondary.main,
+                          color: 'white',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mr: 2
+                        }}>
+                          <FacebookIcon fontSize="small" />
+                        </Box>
+                        Instagram & Facebook
                       </Typography>
                       
                       <Box>
@@ -529,6 +542,20 @@ const ContactPage = () => {
                           }}
                         >
                           <InstagramIcon />
+                        </IconButton>
+                        <IconButton 
+                          component="a"
+                          href="https://www.facebook.com/share/1DuadeLv9C/"
+                          target="_blank"
+                          sx={{ 
+                            bgcolor: '#1877f2',
+                            color: 'white',
+                            '&:hover': {
+                              bgcolor: '#166fe5'
+                            }
+                          }}
+                        >
+                          <FacebookIcon />
                         </IconButton>
                       </Box>
                     </CardContent>
