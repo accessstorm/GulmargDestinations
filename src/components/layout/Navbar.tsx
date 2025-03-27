@@ -20,6 +20,7 @@ const pages = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
   { name: 'Gallery', path: '/gallery' },
+  { name: 'Cabs', path: '/cabs' },
   { name: 'Packages', path: '/packages' },
   { name: 'Blog', path: '/blog' },
   { name: 'Contact', path: '/contact' }

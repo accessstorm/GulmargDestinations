@@ -49,12 +49,12 @@ const WhatsAppButton = () => {
         }}
         onMouseEnter={() => setShowText(true)}
         onMouseLeave={() => setShowText(false)}
-        onClick={() => window.open('https://wa.me/911234567890', '_blank')}
+        onClick={() => window.open('https://wa.me/916006677929', '_blank')}
       >
         <WhatsAppIcon fontSize="large" />
       </Fab>
 
-      <Zoom in={showText} timeout={300}>
+      <Zoom in={showText}>
         <Box
           component={motion.div}
           initial={{ opacity: 0, x: -20 }}
@@ -70,7 +70,7 @@ const WhatsAppButton = () => {
           }}
         >
           <Typography variant="body2" fontWeight="medium">
-            Contact us now
+            +91 6006677929
           </Typography>
         </Box>
       </Zoom>

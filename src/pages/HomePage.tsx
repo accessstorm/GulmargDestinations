@@ -66,6 +66,7 @@ const HomePage = () => {
     '/images/1.jpg',
     '/images/2.jpg',
     '/images/3.jpg',
+    '/images/4.jpg',
     '/images/' + encodeURIComponent('On holiday at last _ Because it was about time you took that much needed getaway with the family_ capturing the joys of togetherness in the contemporary com(.jpg')
   ];
 
@@ -321,53 +322,48 @@ const HomePage = () => {
               </Box>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Full Name"
-                variant="outlined"
-                required
-                sx={{ mb: 3 }}
-              />
+              <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 2,
+                mb: 2
+              }}>
+                <PhoneIcon color="primary" />
+                <Box>
+                  <Typography variant="h6">
+                    +91 6006677929
+                  </Typography>
+                  <Typography variant="h6">
+                    +91 7889325581
+                  </Typography>
+                </Box>
+              </Box>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Email"
-                variant="outlined"
-                type="email"
-                required
-                sx={{ mb: 3 }}
-              />
+              <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 2,
+                mb: 2
+              }}>
+                <EmailIcon color="primary" />
+                <Typography variant="h6">
+                  gulmargdestination@gmail.com
+                </Typography>
+              </Box>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Phone Number"
-                variant="outlined"
-                type="tel"
-                required
-                sx={{ mb: 3 }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Subject"
-                variant="outlined"
-                required
-                sx={{ mb: 3 }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Message"
-                variant="outlined"
-                multiline
-                rows={4}
-                required
-                sx={{ mb: 3 }}
-              />
+              <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: 2,
+                mb: 2
+              }}>
+                <InstagramIcon color="primary" />
+                <Typography variant="h6">
+                  @gulmarg_destination
+                </Typography>
+              </Box>
             </Grid>
             <Grid item xs={12}>
               <Box sx={{ 
@@ -377,6 +373,9 @@ const HomePage = () => {
               }}>
                 <IconButton 
                   color="primary"
+                  component="a"
+                  href="https://www.instagram.com/gulmarg_destination?igsh=MWQ5dGx2bGkxdHU2cw=="
+                  target="_blank"
                   sx={{ 
                     bgcolor: 'rgba(25, 118, 210, 0.1)',
                     '&:hover': {
@@ -384,10 +383,12 @@ const HomePage = () => {
                     }
                   }}
                 >
-                  <WhatsAppIcon />
+                  <InstagramIcon />
                 </IconButton>
                 <IconButton 
                   color="primary"
+                  component="a"
+                  href="tel:+916006677929"
                   sx={{ 
                     bgcolor: 'rgba(25, 118, 210, 0.1)',
                     '&:hover': {
@@ -399,6 +400,8 @@ const HomePage = () => {
                 </IconButton>
                 <IconButton 
                   color="primary"
+                  component="a"
+                  href="mailto:gulmargdestination@gmail.com"
                   sx={{ 
                     bgcolor: 'rgba(25, 118, 210, 0.1)',
                     '&:hover': {

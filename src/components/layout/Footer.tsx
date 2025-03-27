@@ -62,17 +62,18 @@ const Footer = () => {
               and travel services designed to provide you with unforgettable experiences.
             </Typography>
             <Box sx={{ display: 'flex', gap: 1, mt: 3 }}>
-              <IconButton aria-label="Facebook" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
-                <FacebookIcon />
-              </IconButton>
-              <IconButton aria-label="Instagram" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
+              <IconButton 
+                component="a"
+                href="https://www.instagram.com/gulmarg_destination?igsh=MWQ5dGx2bGkxdHU2cw=="
+                target="_blank"
+                sx={{ 
+                  color: '#ffffff',
+                  '&:hover': { 
+                    color: theme.palette.secondary.main 
+                  }
+                }}
+              >
                 <InstagramIcon />
-              </IconButton>
-              <IconButton aria-label="Twitter" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
-                <TwitterIcon />
-              </IconButton>
-              <IconButton aria-label="LinkedIn" sx={{ color: '#ffffff', '&:hover': { color: theme.palette.secondary.main } }}>
-                <LinkedInIcon />
               </IconButton>
             </Box>
           </Grid>
@@ -124,20 +125,41 @@ const Footer = () => {
             <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
               <LocationIcon sx={{ mr: 1, color: theme.palette.secondary.main }} />
               <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
-                123 Gulmarg Road, Kashmir, India
+                Gulmarg, Kashmir, India
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <PhoneIcon sx={{ mr: 1, color: theme.palette.secondary.main }} />
               <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
-                +91 123 456 7890
+                +91 6006677929
+              </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+              <PhoneIcon sx={{ mr: 1, color: theme.palette.secondary.main }} />
+              <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
+                +91 7889325581
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <EmailIcon sx={{ mr: 1, color: theme.palette.secondary.main }} />
               <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
-                info@gulmargdestinations.com
+                gulmargdestination@gmail.com
               </Typography>
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 2 }}>
+              <IconButton 
+                component="a"
+                href="https://www.instagram.com/gulmarg_destination?igsh=MWQ5dGx2bGkxdHU2cw=="
+                target="_blank"
+                sx={{ 
+                  color: 'white',
+                  '&:hover': {
+                    bgcolor: 'rgba(255,255,255,0.1)'
+                  }
+                }}
+              >
+                <InstagramIcon />
+              </IconButton>
             </Box>
           </Grid>
         </Grid>

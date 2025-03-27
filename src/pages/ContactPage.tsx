@@ -19,7 +19,8 @@ import {
   useTheme,
   Divider,
   useMediaQuery,
-  Avatar
+  Avatar,
+  IconButton
 } from '@mui/material';
 import {
   Phone as PhoneIcon,
@@ -277,7 +278,7 @@ const ContactPage = () => {
                         Gulmarg Destinations
                       </Typography>
                       <Typography variant="body2" paragraph sx={{ mb: 2 }}>
-                        123 Gulmarg Road, Kashmir, India
+                        Gulmarg, Kashmir, India
                       </Typography>
                       
                       <Typography 
@@ -311,18 +312,10 @@ const ContactPage = () => {
                       
                       <Box sx={{ mb: 1 }}>
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                          Monday - Friday:
+                          Monday - Sunday:
                         </Typography>
                         <Typography variant="body2">
-                          9:00 AM - 6:00 PM
-                        </Typography>
-                      </Box>
-                      <Box>
-                        <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                          Saturday:
-                        </Typography>
-                        <Typography variant="body2">
-                          10:00 AM - 4:00 PM
+                          9:00 AM - 8:00 PM
                         </Typography>
                       </Box>
                     </CardContent>
@@ -374,24 +367,24 @@ const ContactPage = () => {
                         }}>
                           <PhoneIcon fontSize="small" />
                         </Box>
-                        Phone
+                        Contact Us
                       </Typography>
                       
                       <Box sx={{ mb: 2 }}>
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                          Bookings:
+                          Primary Contact:
                         </Typography>
                         <Typography variant="body1" sx={{ fontWeight: 'bold', mb: 1 }}>
-                          +91 123 456 7890
+                          +91 6006677929
                         </Typography>
                       </Box>
                       
                       <Box>
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                          Customer Support:
+                          Secondary Contact:
                         </Typography>
                         <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-                          +91 987 654 3210
+                          +91 7889325581
                         </Typography>
                       </Box>
                       
@@ -424,21 +417,50 @@ const ContactPage = () => {
                         Email
                       </Typography>
                       
-                      <Box sx={{ mb: 2 }}>
+                      <Box>
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                          General Inquiries:
+                          Email Address:
                         </Typography>
-                        <Typography variant="body1" sx={{ fontWeight: 'bold', mb: 1 }}>
-                          info@gulmargdestinations.com
+                        <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                          gulmargdestination@gmail.com
                         </Typography>
                       </Box>
+
+                      <Typography 
+                        variant="h5" 
+                        component="h2" 
+                        gutterBottom
+                        sx={{ 
+                          fontWeight: 700,
+                          color: theme.palette.secondary.main,
+                          mb: 3,
+                          mt: 4,
+                          display: 'flex',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <Box component="span" sx={{ 
+                          width: 40, 
+                          height: 40, 
+                          borderRadius: '50%', 
+                          bgcolor: theme.palette.secondary.main,
+                          color: 'white',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mr: 2
+                        }}>
+                          <InstagramIcon fontSize="small" />
+                        </Box>
+                        Instagram
+                      </Typography>
                       
                       <Box>
                         <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                          Bookings:
+                          Follow us:
                         </Typography>
                         <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-                          bookings@gulmargdestinations.com
+                          @gulmarg_destination
                         </Typography>
                       </Box>
                     </CardContent>
@@ -488,57 +510,26 @@ const ContactPage = () => {
                           justifyContent: 'center',
                           mr: 2
                         }}>
-                          <WhatsAppIcon fontSize="small" />
-                        </Box>
-                        WhatsApp
-                      </Typography>
-                      
-                      <Typography variant="body1" fontWeight="bold" sx={{ mb: 2 }}>
-                        +91 123 456 7890
-                      </Typography>
-                      <Typography variant="body2" paragraph>
-                        Message us on WhatsApp for quick assistance and instant responses.
-                      </Typography>
-                      
-                      <Typography 
-                        variant="h5" 
-                        component="h2" 
-                        gutterBottom
-                        sx={{ 
-                          fontWeight: 700,
-                          color: theme.palette.primary.light,
-                          mb: 3,
-                          mt: 4,
-                          display: 'flex',
-                          alignItems: 'center'
-                        }}
-                      >
-                        <Box component="span" sx={{ 
-                          width: 40, 
-                          height: 40, 
-                          borderRadius: '50%', 
-                          bgcolor: theme.palette.primary.light,
-                          color: 'white',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          mr: 2
-                        }}>
                           <SendIcon fontSize="small" />
                         </Box>
                         Social Media
                       </Typography>
                       
                       <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
-                        <Avatar sx={{ bgcolor: '#3b5998', cursor: 'pointer' }}>
-                          <FacebookIcon />
-                        </Avatar>
-                        <Avatar sx={{ bgcolor: '#c13584', cursor: 'pointer' }}>
+                        <IconButton 
+                          component="a"
+                          href="https://www.instagram.com/gulmarg_destination?igsh=MWQ5dGx2bGkxdHU2cw=="
+                          target="_blank"
+                          sx={{ 
+                            bgcolor: '#c13584',
+                            color: 'white',
+                            '&:hover': {
+                              bgcolor: '#a72a6b'
+                            }
+                          }}
+                        >
                           <InstagramIcon />
-                        </Avatar>
-                        <Avatar sx={{ bgcolor: '#0e76a8', cursor: 'pointer' }}>
-                          <LinkedInIcon />
-                        </Avatar>
+                        </IconButton>
                       </Box>
                     </CardContent>
                   </Card>
