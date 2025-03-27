@@ -61,6 +61,36 @@ const HomePage = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [openContactModal, setOpenContactModal] = useState(false);
   
+  // Contact form state
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  // Handle contact form input changes
+  const handleContactInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setContactForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle contact form submission
+  const handleContactSubmit = () => {
+    console.log('Contact form submitted:', contactForm);
+    // Reset form
+    setContactForm({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
+    handleCloseContactModal();
+  };
+
   // Header slideshow images
   const headerImages = [
     '/images/1.jpg',
@@ -101,16 +131,11 @@ const HomePage = () => {
   }, [isPaused]);
 
   useEffect(() => {
-    // Check if the modal has been shown before
-    const hasShownModal = localStorage.getItem('hasShownContactModal');
-    if (!hasShownModal) {
-      // Show modal after 2 seconds
-      const timer = setTimeout(() => {
-        setOpenContactModal(true);
-        localStorage.setItem('hasShownContactModal', 'true');
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
+    // Show the contact modal each time the page loads
+    const timer = setTimeout(() => {
+      setOpenContactModal(true);
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleCloseContactModal = () => {
@@ -314,13 +339,75 @@ const HomePage = () => {
         <DialogContent sx={{ p: 4 }}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <Box sx={{ mb: 4 }}>
+              <Box sx={{ mb: 2 }}>
                 <Typography variant="h6" gutterBottom>
                   Contact Information
                 </Typography>
                 <Divider sx={{ mb: 3 }} />
               </Box>
             </Grid>
+            
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Your Name"
+                name="name"
+                value={contactForm.name}
+                onChange={handleContactInputChange}
+                variant="outlined"
+                required
+                sx={{ mb: 2 }}
+              />
+            </Grid>
+            
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Email Address"
+                name="email"
+                type="email"
+                value={contactForm.email}
+                onChange={handleContactInputChange}
+                variant="outlined"
+                required
+                sx={{ mb: 2 }}
+              />
+            </Grid>
+            
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Phone Number"
+                name="phone"
+                value={contactForm.phone}
+                onChange={handleContactInputChange}
+                variant="outlined"
+                required
+                sx={{ mb: 2 }}
+              />
+            </Grid>
+            
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Your Message"
+                name="message"
+                value={contactForm.message}
+                onChange={handleContactInputChange}
+                variant="outlined"
+                multiline
+                rows={4}
+                required
+                sx={{ mb: 3 }}
+              />
+            </Grid>
+            
+            <Grid item xs={12}>
+              <Typography variant="subtitle1" color="primary" sx={{ fontWeight: 'bold', mb: 2 }}>
+                Contact us directly:
+              </Typography>
+            </Grid>
+            
             <Grid item xs={12}>
               <Box sx={{ 
                 display: 'flex', 
@@ -425,7 +512,7 @@ const HomePage = () => {
           <Button 
             variant="contained" 
             color="primary"
-            onClick={handleCloseContactModal}
+            onClick={handleContactSubmit}
             sx={{ 
               px: 4,
               py: 1.5,
