@@ -995,7 +995,7 @@ const HomePage = () => {
                   mb: 4 
                 }}
               >
-                With over 16 years of experience in crafting unforgettable journeys, we specialize in creating personalized travel experiences that showcase the best of Kashmir's natural beauty and cultural heritage. Our expert team ensures every detail of your trip is meticulously planned and executed.
+                With over 6+ years of experience in crafting unforgettable journeys, we specialize in creating personalized travel experiences that showcase the best of Kashmir's natural beauty and cultural heritage. Our expert team ensures every detail of your trip is meticulously planned and executed.
               </Typography>
               <Grid container spacing={3} sx={{ mb: 4 }}>
                 <Grid item xs={6}>

@@ -46,6 +46,7 @@ import {
   Phone as PhoneIcon
 } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Extended Vehicle interface with more details
 interface Vehicle {
@@ -114,7 +115,7 @@ const CabsPage = () => {
       name: 'Maruti Swift Dzire',
       image: '/images/Maruti Swift Dzire.jpg',
       seats: '4-Seater',
-      dailyRental: '₹3,500',
+      dailyRental: '₹2,000',
       location: 'Gulmarg, Kashmir',
       rating: 4.7,
       reviews: 41,
@@ -155,29 +156,6 @@ const CabsPage = () => {
         'Rear Entertainment'
       ]
     },
-    {
-      id: 4,
-      name: 'Force Traveller',
-      image: '/images/Force Traveller.jpg',
-      seats: 'Shared',
-      dailyRental: '₹4,500',
-      location: 'Gulmarg, Kashmir',
-      rating: 4.6,
-      reviews: 38,
-      description: "Our Force Traveller is the ultimate solution for large groups or shared transportation needs. With comfortable reclining seats, ample luggage space, and full air conditioning, it ensures pleasant journeys even on longer routes through Kashmir's diverse terrain.",
-      keyPoints: [
-        'Ideal for large groups',
-        'Ample luggage space',
-        'Reclining seats',
-        'Air conditioning'
-      ],
-      amenities: [
-        'Push-back Seats',
-        'Individual Reading Lights',
-        'Separate Luggage Compartment',
-        'Music System'
-      ]
-    }
   ];
 
   // Set up the visible vehicles
@@ -932,7 +910,11 @@ const CabsPage = () => {
             </DialogContent>
             <DialogActions>
               <Button onClick={handleCloseDialog}>Cancel</Button>
-              <Button variant="contained" onClick={handleSubmit}>
+              <Button 
+                variant="contained" 
+                component={Link}
+                to="/contact"
+              >
                 Submit Booking
               </Button>
             </DialogActions>

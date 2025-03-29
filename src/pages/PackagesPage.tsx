@@ -41,7 +41,7 @@ import {
   PersonOutline as PersonOutlineIcon,
   Email as EmailIcon
 } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import { Link, Link as RouterLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // Add interface for package type
@@ -302,7 +302,7 @@ const PackagesPage = () => {
       id: 1,
       name: 'Khyber Himalayan Resort & Spa',
       description: 'Luxury 5-star resort offering panoramic views of Gulmarg.',
-      price: '₹28,000',
+      price: '₹72,000',
       rating: 4.8,
       image: '/images/Khyber Himalayan Resort & Spa.jpg',
       features: ['Spa Services', 'Fine Dining', 'Ski-in/Ski-out Access', 'Helicopter Service'],
@@ -1469,6 +1469,8 @@ const PackagesPage = () => {
                   variant="contained" 
                   color="primary"
                   size="large"
+                  component={RouterLink}
+                  to="/contact"
                 >
                   Confirm Booking
                 </Button>
