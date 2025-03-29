@@ -192,6 +192,24 @@ const Footer = () => {
 
         <Divider sx={{ my: 4, bgcolor: 'rgba(255,255,255,0.1)' }} />
 
+        {/* Payment Methods */}
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h6" gutterBottom sx={{ 
+            fontFamily: '"Montserrat", "Arial", sans-serif',
+            fontWeight: 600,
+            mb: 2
+          }}>
+            Payment Methods
+          </Typography>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center' }}>
+            <Box component="img" src="/images/MasterCard.jpg" alt="MasterCard" sx={{ height: 30, objectFit: 'contain' }} />
+            <Box component="img" src="/images/paypal.jpg" alt="PayPal" sx={{ height: 30, objectFit: 'contain' }} />
+            <Box component="img" src="/images/visa electron.jpg" alt="Visa Electron" sx={{ height: 30, objectFit: 'contain' }} />
+            <Box component="img" src="/images/visa.jpg" alt="Visa" sx={{ height: 30, objectFit: 'contain' }} />
+            <Box component="img" src="/images/Maestro.jpg" alt="Maestro" sx={{ height: 30, objectFit: 'contain' }} />
+          </Box>
+        </Box>
+
         {/* Copyright */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           <Typography variant="body2" sx={{ fontFamily: '"Roboto", "Arial", sans-serif' }}>
@@ -218,6 +236,36 @@ const Footer = () => {
               </Typography>
             ))}
           </Box>
+        </Box>
+        
+        {/* Zyberly Attribution */}
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          mt: 4, 
+          gap: 1 
+        }}>
+          <Box 
+            component="img" 
+            src="/images/zyberly.png" 
+            alt="Zyberly" 
+            sx={{ 
+              height: 25, 
+              width: 25, 
+              borderRadius: '50%',
+              objectFit: 'cover'
+            }} 
+          />
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              fontFamily: '"Roboto", "Arial", sans-serif',
+              fontSize: '0.8rem'
+            }}
+          >
+            Made by zyberly
+          </Typography>
         </Box>
       </Container>
     </Box>
