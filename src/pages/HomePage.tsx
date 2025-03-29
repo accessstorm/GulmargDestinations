@@ -242,7 +242,7 @@ const HomePage = () => {
     },
     {
       icon: <EmojiEventsIcon sx={{ fontSize: 40, color: theme.palette.secondary.main }} />,
-      value: '15+',
+      value: '6+',
       label: 'Years Experience'
     }
   ];
