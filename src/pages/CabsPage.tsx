@@ -156,6 +156,29 @@ const CabsPage = () => {
         'Rear Entertainment'
       ]
     },
+    {
+      id: 4,
+      name: 'Force traveller',
+      image: '/images/Force traveller.jpg',
+      seats: 'Shared',
+      dailyRental: '₹2,000',
+      location: 'Gulmarg, Kashmir',
+      rating: 4.7,
+      reviews: 41,
+      description: "Shared Force Traveller tours for budget-friendly and comfortable group travel to top destinations.",
+      keyPoints: [
+        'Spacious trunk',
+        'Smooth ride quality',
+        'Bluetooth connectivity',
+        'Power windows'
+      ],
+      amenities: [
+        'GPS Navigation',
+        'Entertainment System',
+        'Rear AC Vents',
+        'Central Locking'
+      ]
+    },
   ];
 
   // Set up the visible vehicles
